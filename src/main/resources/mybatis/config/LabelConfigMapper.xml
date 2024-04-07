@@ -4,15 +4,9 @@
 <select id="getConfig" resultType="com.middle.label.config.entity.LabelConfig">
     SELECT
         TOP 1
-        css_config.config_id,
-        css_config.plc_ip,
-        css_config.plc_port,
-        css_config.one_one_length,
-        css_config.two_length,
-        css_config.judge_load_point,
-        css_config.pointj_length,
-        css_config.pointk_length,
-        css_config.pointl_length
+        label_config.config_id,
+        label_config.plc_ip,
+        label_config.plc_port
     FROM
         dbo.label_config
 </select>
