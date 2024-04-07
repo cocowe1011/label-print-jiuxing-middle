@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.label.order.dao.UrValueFkMapper">
+
+    <resultMap type="com.middle.label.order.entity.po.UrValueFk" id="UrValueFkMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="dstatuschange" column="DStatusChange" jdbcType="TIMESTAMP"/>
+        <result property="idScproduct" column="Id_scProduct" jdbcType="INTEGER"/>
+        <result property="idRequest" column="ID_Request" jdbcType="INTEGER"/>
+        <result property="ccodeScproduct" column="Ccode_scProduct" jdbcType="VARCHAR"/>
+        <result property="ccodeScaproduc" column="Ccode_scAProduc" jdbcType="VARCHAR"/>
+        <result property="cnameScaproduc" column="Cname_scAProduc" jdbcType="VARCHAR"/>
+        <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+        <result property="orderNumber" column="order_number" jdbcType="VARCHAR"/>
+        <result property="customerNumber" column="customer_number" jdbcType="VARCHAR"/>
+        <result property="customerMaterialNumber" column="customer_material_number" jdbcType="VARCHAR"/>
+        <result property="inspection" column="inspection" jdbcType="VARCHAR"/>
+        <result property="length" column="Length" jdbcType="OTHER"/>
+        <result property="width" column="Width" jdbcType="OTHER"/>
+        <result property="height" column="Height" jdbcType="OTHER"/>
+        <result property="productionSerial" column="Production_serial" jdbcType="INTEGER"/>
+        <result property="isPack" column="Is_pack" jdbcType="VARCHAR"/>
+        <result property="isPrint" column="Is_print" jdbcType="VARCHAR"/>
+        <result property="drugSpecifications" column="Drug_specifications" jdbcType="VARCHAR"/>
+        <result property="machine" column="Machine" jdbcType="VARCHAR"/>
+        <result property="namount" column="nAmount" jdbcType="OTHER"/>
+        <result property="customer" column="Customer" jdbcType="VARCHAR"/>
+        <result property="qrCode" column="QR_code" jdbcType="VARCHAR"/>
+        <result property="isComplete" column="is_complete" jdbcType="INTEGER"/>
+        <result property="reprintingTimes" column="Reprinting_times" jdbcType="INTEGER"/>
+        <result property="index" column="index" jdbcType="VARCHAR"/>
+        <result property="team" column="Team" jdbcType="VARCHAR"/>
+        <result property="operator" column="Operator" jdbcType="VARCHAR"/>
+        <result property="isinto" column="isinto" jdbcType="INTEGER"/>
+        <result property="isbeging" column="isbeging" jdbcType="INTEGER"/>
+        <result property="isgather" column="isGather" jdbcType="INTEGER"/>
+    </resultMap>
+
+    
+
+</mapper>
