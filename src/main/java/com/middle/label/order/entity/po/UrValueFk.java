@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 /**
@@ -20,6 +22,7 @@ public class UrValueFk{
     * 表ID
     */
     @TableId
+    @JsonSerialize(using = ToStringSerializer.class)
     private Integer id;
 
     /**

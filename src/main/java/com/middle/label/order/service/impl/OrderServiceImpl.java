@@ -1,9 +1,12 @@
 package com.middle.label.order.service.impl;
+import com.middle.label.order.dao.UrValueFkTaskMapper;
 import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.dao.UrValueFkMapper;
-import com.middle.label.order.service.UrValueFkService;
+import com.middle.label.order.entity.po.UrValueFkTask;
+import com.middle.label.order.service.OrderService;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * (UrValueFk)表服务实现类
@@ -12,10 +15,22 @@ import javax.annotation.Resource;
  * @since 2024-04-07 23:13:06
  */
 @Service("urValueFkService")
-public class UrValueFkServiceImpl implements UrValueFkService {
+public class OrderServiceImpl implements OrderService {
 
     @Resource
     private UrValueFkMapper urValueFkMapper;
+
+    @Resource
+    private UrValueFkTaskMapper urValueFkTaskMapper;
+
+    /**
+     * 获取机台任务列表
+     * @return
+     */
+    @Override
+    public List<UrValueFkTask> getMachineList() {
+        return this.urValueFkTaskMapper.getMachineList();
+    }
 
     /**
      * 修改数据

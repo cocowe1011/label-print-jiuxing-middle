@@ -1,7 +1,11 @@
 package com.middle.label.order.service;
 
 import com.middle.label.order.entity.po.UrValueFk;
+import com.middle.label.order.entity.po.UrValueFkTask;
 import org.springframework.validation.annotation.Validated;
+
+import java.util.List;
+
 /**
  * (UrValueFk)表服务接口
  *
@@ -9,7 +13,7 @@ import org.springframework.validation.annotation.Validated;
  * @since 2024-04-07 23:13:06
  */
 @Validated
-public interface UrValueFkService {
+public interface OrderService {
     /**
      * 修改数据
      *
@@ -17,4 +21,10 @@ public interface UrValueFkService {
      * @return 成功为1，失败为0
      */
     int update(UrValueFk urValueFk);
+
+    /**
+     * 获取机台任务列表
+     * @return
+     */
+    List<UrValueFkTask> getMachineList();
 }
