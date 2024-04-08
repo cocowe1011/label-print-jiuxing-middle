@@ -27,4 +27,10 @@ public interface OrderService {
      * @return
      */
     List<UrValueFkTask> getMachineList();
+
+    /**
+     * 查询按照箱编号正序排序的第一个订单信息
+     * @return
+     */
+    UrValueFk getOrderBoxInfo();
 }

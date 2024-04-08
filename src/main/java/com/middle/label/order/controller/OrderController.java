@@ -32,6 +32,15 @@ public class OrderController {
         return ResponseResult.success(orderService.getMachineList());
     }
 
+    /**
+     * 查询按照箱编号正序排序的第一个订单信息
+     * @return
+     */
+    @RequestMapping("/getOrderBoxInfo")
+    public ResponseResult<UrValueFk> getOrderBoxInfo() {
+        return ResponseResult.success(orderService.getOrderBoxInfo());
+    }
+
 /**
     * 更新
     *

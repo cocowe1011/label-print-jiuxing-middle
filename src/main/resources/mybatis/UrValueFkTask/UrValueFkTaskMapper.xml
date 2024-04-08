@@ -2,18 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.middle.label.order.dao.UrValueFkTaskMapper">
     <select id="getMachineList" resultType="com.middle.label.order.entity.po.UrValueFkTask">
-    SELECT
-        ID as id,
-        DStatusChange as dstatuschange,
-        Id_scProduct as idScproduct,
-        Ccode_scProduct as ccodeScproduct,
-        Id_mjob as idMjob,
-        Machine as machine,
-        Istatus_mjob as istatusMjob,
-        web as web,
-        Istatus_scProduct as istatusScproduct
-    FROM dbo.UR_VALUE_FK_TASK
-</select>
+        SELECT
+            ID as id,
+            DStatusChange as dstatuschange,
+            Id_scProduct as idScproduct,
+            Ccode_scProduct as ccodeScproduct,
+            Id_mjob as idMjob,
+            Machine as machine,
+            Istatus_mjob as istatusMjob,
+            web as web,
+            Istatus_scProduct as istatusScproduct
+        FROM dbo.UR_VALUE_FK_TASK
+    </select>
     
 
 </mapper>

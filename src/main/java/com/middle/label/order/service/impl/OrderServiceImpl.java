@@ -33,6 +33,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
+     * 查询按照箱编号正序排序的第一个订单信息
+     * @return
+     */
+    @Override
+    public UrValueFk getOrderBoxInfo() {
+        return this.urValueFkMapper.getOrderBoxInfo();
+    }
+
+    /**
      * 修改数据
      *
      * @param entity 实例对象
