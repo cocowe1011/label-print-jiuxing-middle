@@ -1,6 +1,7 @@
 package com.middle.label.order.controller;
 
 import com.middle.label.hander.ResponseResult;
+import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.entity.po.UrValueFkTask;
 import com.middle.label.order.service.OrderService;
@@ -37,8 +38,8 @@ public class OrderController {
      * @return
      */
     @RequestMapping("/getOrderBoxInfo")
-    public ResponseResult<UrValueFk> getOrderBoxInfo() {
-        return ResponseResult.success(orderService.getOrderBoxInfo());
+    public ResponseResult<UrValueFk> getOrderBoxInfo(@RequestBody OrderBoxInfoDTO orderBoxInfoDTO) {
+        return ResponseResult.success(orderService.getOrderBoxInfo(orderBoxInfoDTO));
     }
 
 /**

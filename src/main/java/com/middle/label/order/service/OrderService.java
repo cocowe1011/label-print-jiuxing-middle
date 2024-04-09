@@ -1,5 +1,6 @@
 package com.middle.label.order.service;
 
+import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.entity.po.UrValueFkTask;
 import org.springframework.validation.annotation.Validated;
@@ -32,5 +33,5 @@ public interface OrderService {
      * 查询按照箱编号正序排序的第一个订单信息
      * @return
      */
-    UrValueFk getOrderBoxInfo();
+    UrValueFk getOrderBoxInfo(OrderBoxInfoDTO orderBoxInfoDTO);
 }

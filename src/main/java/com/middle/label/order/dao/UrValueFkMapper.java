@@ -1,6 +1,7 @@
 package com.middle.label.order.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import org.apache.ibatis.annotations.Mapper;
 import com.middle.label.order.entity.po.UrValueFk;
 /**
@@ -13,7 +14,8 @@ import com.middle.label.order.entity.po.UrValueFk;
 public interface UrValueFkMapper extends BaseMapper<UrValueFk> {
     /**
      * 查询按照箱编号正序排序的第一个订单信息
+     * @param orderBoxInfoDTO
      * @return
      */
-    UrValueFk getOrderBoxInfoForUpdate();
+    UrValueFk getOrderBoxInfoForUpdate(OrderBoxInfoDTO orderBoxInfoDTO);
 }

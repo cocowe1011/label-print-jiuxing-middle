@@ -1,6 +1,7 @@
 package com.middle.label.order.service.impl;
 import com.middle.label.order.dao.UrValueFkLogMapper;
 import com.middle.label.order.dao.UrValueFkTaskMapper;
+import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.dao.UrValueFkMapper;
 import com.middle.label.order.entity.po.UrValueFkLog;
@@ -46,13 +47,14 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public UrValueFk getOrderBoxInfo() {
+    public UrValueFk getOrderBoxInfo(OrderBoxInfoDTO orderBoxInfoDTO) {
         // 加悲观锁，保证数据操作原子性
-        UrValueFk urValueFk = this.urValueFkMapper.getOrderBoxInfoForUpdate();
+        UrValueFk urValueFk = this.urValueFkMapper.getOrderBoxInfoForUpdate(orderBoxInfoDTO);
         if (null != urValueFk) {
             UrValueFk entity = new UrValueFk();
             entity.setId(urValueFk.getId());
             entity.setIsComplete(20);
+            entity.setMachine(orderBoxInfoDTO.getMachine());
             this.urValueFkMapper.updateById(entity);
         }
         return urValueFk;
