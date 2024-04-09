@@ -46,8 +46,8 @@ public class OrderController {
     *
     * @param  urValueFk
     */
-    @PostMapping("/update")
-    public void update(@RequestBody UrValueFk urValueFk) {
-        this.orderService.update(urValueFk);
+    @PostMapping("/dealAfterPrint")
+    public ResponseResult<Integer> dealAfterPrint(@RequestBody UrValueFk urValueFk) {
+        return ResponseResult.success(this.orderService.dealAfterPrint(urValueFk));
     }
 }

@@ -20,7 +20,7 @@ public interface OrderService {
      * @param urValueFk 实例对象
      * @return 成功为1，失败为0
      */
-    int update(UrValueFk urValueFk);
+    Integer dealAfterPrint(UrValueFk urValueFk);
 
     /**
      * 获取机台任务列表

@@ -15,5 +15,5 @@ public interface UrValueFkMapper extends BaseMapper<UrValueFk> {
      * 查询按照箱编号正序排序的第一个订单信息
      * @return
      */
-    UrValueFk getOrderBoxInfo();
+    UrValueFk getOrderBoxInfoForUpdate();
 }

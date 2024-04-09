@@ -1,11 +1,16 @@
 package com.middle.label.order.service.impl;
+import com.middle.label.order.dao.UrValueFkLogMapper;
 import com.middle.label.order.dao.UrValueFkTaskMapper;
 import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.dao.UrValueFkMapper;
+import com.middle.label.order.entity.po.UrValueFkLog;
 import com.middle.label.order.entity.po.UrValueFkTask;
 import com.middle.label.order.service.OrderService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +28,9 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     private UrValueFkTaskMapper urValueFkTaskMapper;
 
+    @Resource
+    private UrValueFkLogMapper urValueFkLogMapper;
+
     /**
      * 获取机台任务列表
      * @return
@@ -37,20 +45,63 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public UrValueFk getOrderBoxInfo() {
-        return this.urValueFkMapper.getOrderBoxInfo();
+        // 加悲观锁，保证数据操作原子性
+        UrValueFk urValueFk = this.urValueFkMapper.getOrderBoxInfoForUpdate();
+        if (null != urValueFk) {
+            UrValueFk entity = new UrValueFk();
+            entity.setId(urValueFk.getId());
+            entity.setIsComplete(20);
+            this.urValueFkMapper.updateById(entity);
+        }
+        return urValueFk;
     }
 
     /**
      * 修改数据
      *
-     * @param entity 实例对象
+     * @param urValueFk 实例对象
      * @return 实例对象
      */
     @Override
-    public int update(UrValueFk entity) {
-        //1.将新增页面中的信息转换为po对象
-        int update = this.urValueFkMapper.updateById(entity);
-        return update;
+    @Transactional(rollbackFor = Exception.class)
+    public Integer dealAfterPrint(UrValueFk urValueFk) {
+        // 1、更新订单任务表中的一些字段
+        UrValueFk entity = new UrValueFk();
+        entity.setId(urValueFk.getId());
+        entity.setIsComplete(10);
+        entity.setIsgather(1);
+        entity.setMachine(urValueFk.getMachine());
+        int i = this.urValueFkMapper.updateById(entity);
+        if(i < 1) {
+            throw new RuntimeException();
+        }
+        // 2、插入日志表
+        UrValueFkLog urValueFkLog = new UrValueFkLog();
+        // 赋值
+        urValueFkLog.setDstatuschange(new Date());
+        urValueFkLog.setIdScproduct(urValueFk.getIdScproduct());
+        urValueFkLog.setIdRequest(urValueFk.getIdRequest());
+        urValueFkLog.setCcodeScproduct(urValueFk.getCcodeScproduct());
+        urValueFkLog.setCcodeOnly(urValueFk.getIdScproduct() + "_" + urValueFk.getIdRequest());
+        urValueFkLog.setMachine(urValueFk.getMachine());
+        urValueFkLog.setTeam(urValueFk.getTeam());
+        urValueFkLog.setOperator(urValueFk.getOperator());
+        /**
+         * OperationType
+         * 0：修改
+         * 1：删除
+         * 2：新增
+         * 3：补打印
+         */
+        urValueFkLog.setOperationType("2");
+        urValueFkLog.setRemarks("打印标签成功后插入日志记录表");
+        i = urValueFkLogMapper.insert(urValueFkLog);
+        if(i < 1) {
+            throw new RuntimeException();
+        }
+        // 3、考虑如果更新失败了，怎么办--回滚啦
+        return i;
     }
 }

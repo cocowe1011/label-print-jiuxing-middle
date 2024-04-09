@@ -35,8 +35,8 @@
         <result property="isbeging" column="isbeging" jdbcType="INTEGER"/>
         <result property="isgather" column="isGather" jdbcType="INTEGER"/>
     </resultMap>
-    <select id="getOrderBoxInfo" resultMap="UrValueFkMap">
-        SELECT top 1 * FROM  [dbo].[UR_VALUE_FK] where is_complete = -20 order by [index]
+    <select id="getOrderBoxInfoForUpdate" resultMap="UrValueFkMap">
+        SELECT top 1 * FROM  [dbo].[UR_VALUE_FK] where is_complete = -20 order by [index] FOR UPDATE
     </select>
     
 
