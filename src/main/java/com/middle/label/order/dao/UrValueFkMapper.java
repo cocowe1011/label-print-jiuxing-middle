@@ -1,9 +1,13 @@
 package com.middle.label.order.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.middle.label.order.entity.dto.GetOrderListPageDTO;
 import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import org.apache.ibatis.annotations.Mapper;
 import com.middle.label.order.entity.po.UrValueFk;
+
+import java.util.List;
+
 /**
  * (UrValueFk)表数据库访问层
  *
@@ -18,4 +22,11 @@ public interface UrValueFkMapper extends BaseMapper<UrValueFk> {
      * @return
      */
     UrValueFk getOrderBoxInfoForUpdate(OrderBoxInfoDTO orderBoxInfoDTO);
+
+    /**
+     * 查询已经完成打印的订单信息
+     * @param getOrderListPageDTO
+     * @return
+     */
+    List<UrValueFk> getOrderListSearch(GetOrderListPageDTO getOrderListPageDTO);
 }

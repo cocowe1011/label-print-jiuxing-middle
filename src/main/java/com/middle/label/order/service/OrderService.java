@@ -1,5 +1,7 @@
 package com.middle.label.order.service;
 
+import com.github.pagehelper.PageInfo;
+import com.middle.label.order.entity.dto.GetOrderListPageDTO;
 import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.entity.po.UrValueFkTask;
@@ -34,4 +36,11 @@ public interface OrderService {
      * @return
      */
     UrValueFk getOrderBoxInfo(OrderBoxInfoDTO orderBoxInfoDTO);
+
+    /**
+     * 查询已经完成打印的订单信息
+     * @param getOrderListPageDTO
+     * @return
+     */
+    PageInfo<UrValueFk> getOrderListSearch(GetOrderListPageDTO getOrderListPageDTO);
 }

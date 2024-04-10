@@ -41,6 +41,15 @@
         or (is_complete = 20 and Machine = #{machine} ))
         order by [index]
     </select>
-    
 
+    <select id="getOrderListSearch" resultMap="UrValueFkMap" parameterType="com.middle.label.order.entity.dto.GetOrderListPageDTO">
+        SELECT * FROM dbo.UR_VALUE_FK
+        where is_complete = 10 and Machine = #{machine}
+        <if test="idScproduct != null">
+            and Id_scProduct = #{idScproduct}
+        </if>
+        <if test="ccodeScproduct != null and ccodeScproduct != ''">
+            and Ccode_scProduct = #{ccodeScproduct}
+        </if>
+    </select>
 </mapper>

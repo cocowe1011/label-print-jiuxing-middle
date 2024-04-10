@@ -1,6 +1,8 @@
 package com.middle.label.order.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.middle.label.hander.ResponseResult;
+import com.middle.label.order.entity.dto.GetOrderListPageDTO;
 import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.entity.po.UrValueFkTask;
@@ -50,5 +52,15 @@ public class OrderController {
     @PostMapping("/dealAfterPrint")
     public ResponseResult<Integer> dealAfterPrint(@RequestBody UrValueFk urValueFk) {
         return ResponseResult.success(this.orderService.dealAfterPrint(urValueFk));
+    }
+
+    /**
+     * 查询已经完成打印的订单信息
+     * @param getOrderListPageDTO
+     * @return
+     */
+    @RequestMapping("/getOrderListSearch")
+    public ResponseResult<PageInfo<UrValueFk>> getOrderListSearch(@RequestBody GetOrderListPageDTO getOrderListPageDTO) {
+        return ResponseResult.success(orderService.getOrderListSearch(getOrderListPageDTO));
     }
 }

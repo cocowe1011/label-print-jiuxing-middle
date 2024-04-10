@@ -1,6 +1,9 @@
 package com.middle.label.order.service.impl;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageInfo;
 import com.middle.label.order.dao.UrValueFkLogMapper;
 import com.middle.label.order.dao.UrValueFkTaskMapper;
+import com.middle.label.order.entity.dto.GetOrderListPageDTO;
 import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.dao.UrValueFkMapper;
@@ -13,6 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+
+import static com.github.pagehelper.page.PageMethod.startPage;
 
 /**
  * (UrValueFk)表服务实现类
@@ -105,5 +110,19 @@ public class OrderServiceImpl implements OrderService {
         }
         // 3、考虑如果更新失败了，怎么办--回滚啦
         return i;
+    }
+
+    /**
+     * 查询已经完成打印的订单信息
+     * @param getOrderListPageDTO
+     * @return
+     */
+    @Override
+    public PageInfo<UrValueFk> getOrderListSearch(GetOrderListPageDTO getOrderListPageDTO) {
+        // 分页查询当前时段的预约患者
+        Page<UrValueFk> page = startPage(getOrderListPageDTO.getPageNum(), getOrderListPageDTO.getPageSize());
+        urValueFkMapper.getOrderListSearch(getOrderListPageDTO);
+        PageInfo<UrValueFk> voPage = new PageInfo<>(page);
+        return voPage;
     }
 }
