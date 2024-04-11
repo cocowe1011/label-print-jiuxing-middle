@@ -43,4 +43,10 @@ public interface OrderService {
      * @return
      */
     PageInfo<UrValueFk> getOrderListSearch(GetOrderListPageDTO getOrderListPageDTO);
+
+    /**
+     * 更新
+     * @param  urValueFk
+     */
+    Integer update(UrValueFk urValueFk);
 }

@@ -125,4 +125,15 @@ public class OrderServiceImpl implements OrderService {
         PageInfo<UrValueFk> voPage = new PageInfo<>(page);
         return voPage;
     }
+
+    /**
+     * 修改数据
+     *
+     * @param entity 实例对象
+     * @return 实例对象
+     */
+    @Override
+    public Integer update(UrValueFk entity) {
+        return this.urValueFkMapper.updateById(entity);
+    }
 }

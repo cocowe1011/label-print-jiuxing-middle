@@ -63,4 +63,13 @@ public class OrderController {
     public ResponseResult<PageInfo<UrValueFk>> getOrderListSearch(@RequestBody GetOrderListPageDTO getOrderListPageDTO) {
         return ResponseResult.success(orderService.getOrderListSearch(getOrderListPageDTO));
     }
+
+    /**
+     * 更新
+     * @param  urValueFk
+     */
+    @PostMapping("/update")
+    public ResponseResult<Integer> update(@RequestBody UrValueFk urValueFk) {
+        return ResponseResult.success(this.orderService.update(urValueFk));
+    }
 }
