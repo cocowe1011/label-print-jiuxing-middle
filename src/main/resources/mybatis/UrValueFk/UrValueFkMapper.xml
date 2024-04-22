@@ -8,8 +8,8 @@
         <result property="idScproduct" column="Id_scProduct" jdbcType="INTEGER"/>
         <result property="idRequest" column="ID_Request" jdbcType="INTEGER"/>
         <result property="ccodeScproduct" column="Ccode_scProduct" jdbcType="VARCHAR"/>
-        <result property="ccodeScaproduc" column="Ccode_scAProduc" jdbcType="VARCHAR"/>
-        <result property="cnameScaproduc" column="Cname_scAProduc" jdbcType="VARCHAR"/>
+        <result property="ccodeScaproduct" column="Ccode_scAProduct" jdbcType="VARCHAR"/>
+        <result property="cnameScaproduct" column="Cname_scAProduct" jdbcType="VARCHAR"/>
         <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
         <result property="orderNumber" column="order_number" jdbcType="VARCHAR"/>
         <result property="customerNumber" column="customer_number" jdbcType="VARCHAR"/>
@@ -21,25 +21,24 @@
         <result property="productionSerial" column="Production_serial" jdbcType="INTEGER"/>
         <result property="isPack" column="Is_pack" jdbcType="VARCHAR"/>
         <result property="isPrint" column="Is_print" jdbcType="VARCHAR"/>
-        <result property="drugSpecifications" column="Drug_specifications" jdbcType="VARCHAR"/>
+        <result property="drugSpecification" column="Drug_specification" jdbcType="VARCHAR"/>
         <result property="machine" column="Machine" jdbcType="VARCHAR"/>
         <result property="namount" column="nAmount" jdbcType="OTHER"/>
         <result property="customer" column="Customer" jdbcType="VARCHAR"/>
         <result property="qrCode" column="QR_code" jdbcType="VARCHAR"/>
         <result property="isComplete" column="is_complete" jdbcType="INTEGER"/>
-        <result property="reprintingTimes" column="Reprinting_times" jdbcType="INTEGER"/>
-        <result property="index" column="index" jdbcType="VARCHAR"/>
+        <result property="reprintingTime" column="Reprinting_time" jdbcType="INTEGER"/>
+        <result property="iIndex" column="iIndex" jdbcType="VARCHAR"/>
         <result property="team" column="Team" jdbcType="VARCHAR"/>
         <result property="operator" column="Operator" jdbcType="VARCHAR"/>
         <result property="isinto" column="isinto" jdbcType="INTEGER"/>
-        <result property="isbeging" column="isbeging" jdbcType="INTEGER"/>
         <result property="isgather" column="isGather" jdbcType="INTEGER"/>
     </resultMap>
     <select id="getOrderBoxInfoForUpdate" resultMap="UrValueFkMap" parameterType="com.middle.label.order.entity.dto.OrderBoxInfoDTO">
         SELECT top 1 * FROM  [dbo].[UR_VALUE_FK]
         where (is_complete = -20
         or (is_complete = 20 and Machine = #{machine} ))
-        order by [index]
+        order by iIndex
     </select>
 
     <select id="getOrderListSearch" resultMap="UrValueFkMap" parameterType="com.middle.label.order.entity.dto.GetOrderListPageDTO">
@@ -50,6 +49,9 @@
         </if>
         <if test="ccodeScproduct != null and ccodeScproduct != ''">
             and Ccode_scProduct = #{ccodeScproduct}
+        </if>
+        <if test="iIndex != null and iIndex != ''">
+            and iIndex = #{iIndex}
         </if>
     </select>
 </mapper>

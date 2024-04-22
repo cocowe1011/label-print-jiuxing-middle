@@ -24,6 +24,11 @@ public class GetOrderListPageDTO {
     /**
      * 箱序号
      */
+    private String iIndex;
+
+    /**
+     * 箱序号
+     */
     private String machine;
 
     /**

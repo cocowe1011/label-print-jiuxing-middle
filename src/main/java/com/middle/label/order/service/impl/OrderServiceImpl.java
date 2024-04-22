@@ -1,4 +1,5 @@
 package com.middle.label.order.service.impl;
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.middle.label.order.dao.UrValueFkLogMapper;
@@ -42,6 +43,7 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
+    @DS("db2")
     public List<UrValueFkTask> getMachineList() {
         return this.urValueFkTaskMapper.getMachineList();
     }
@@ -52,6 +54,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
+    @DS("db2")
     public UrValueFk getOrderBoxInfo(OrderBoxInfoDTO orderBoxInfoDTO) {
         // 加悲观锁，保证数据操作原子性
         UrValueFk urValueFk = this.urValueFkMapper.getOrderBoxInfoForUpdate(orderBoxInfoDTO);
@@ -73,6 +76,7 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
+    @DS("db2")
     public Integer dealAfterPrint(UrValueFk urValueFk) {
         // 1、更新订单任务表中的一些字段
         UrValueFk entity = new UrValueFk();
@@ -118,6 +122,7 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     @Override
+    @DS("db2")
     public PageInfo<UrValueFk> getOrderListSearch(GetOrderListPageDTO getOrderListPageDTO) {
         // 分页查询当前时段的预约患者
         Page<UrValueFk> page = startPage(getOrderListPageDTO.getPageNum(), getOrderListPageDTO.getPageSize());
@@ -133,6 +138,7 @@ public class OrderServiceImpl implements OrderService {
      * @return 实例对象
      */
     @Override
+    @DS("db2")
     public Integer update(UrValueFk entity) {
         return this.urValueFkMapper.updateById(entity);
     }

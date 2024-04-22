@@ -50,12 +50,12 @@ public class UrValueFk{
     /**
     * 产品编号
     */
-    private String ccodeScaproduc;
+    private String ccodeScaproduct;
 
     /**
     * 产品名称
     */
-    private String cnameScaproduc;
+    private String cnameScaproduct;
 
     /**
     * 客户品名
@@ -119,7 +119,7 @@ public class UrValueFk{
     /**
     * 药品规格
     */
-    private String drugSpecifications;
+    private String drugSpecification;
 
     /**
     * 当前作业机台名称,生产线代号
@@ -154,12 +154,12 @@ public class UrValueFk{
     /**
     * 补打印次数
     */
-    private Integer reprintingTimes;
+    private Integer reprintingTime;
 
     /**
     * 箱序号
     */
-    private String index;
+    private String iIndex;
 
     /**
     * 班组名称
@@ -175,11 +175,6 @@ public class UrValueFk{
     * 是否入库通知
     */
     private Integer isinto;
-
-    /**
-    * 作业生产状态
-    */
-    private Integer isbeging;
 
     /**
     * 采集承重成功,0: 未成功
