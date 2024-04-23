@@ -33,11 +33,14 @@
         <result property="operator" column="Operator" jdbcType="VARCHAR"/>
         <result property="isinto" column="isinto" jdbcType="INTEGER"/>
         <result property="isgather" column="isGather" jdbcType="INTEGER"/>
+        <result property="nweight" column="nweight" jdbcType="OTHER"/>
+        <result property="cremark" column="cremark" jdbcType="VARCHAR"/>
     </resultMap>
     <select id="getOrderBoxInfoForUpdate" resultMap="UrValueFkMap" parameterType="com.middle.label.order.entity.dto.OrderBoxInfoDTO">
         SELECT top 1 * FROM  [dbo].[UR_VALUE_FK]
         where (is_complete = -20
         or (is_complete = 20 and Machine = #{machine} ))
+        and Id_scProduct = #{idScproduct}
         order by iIndex
     </select>
 

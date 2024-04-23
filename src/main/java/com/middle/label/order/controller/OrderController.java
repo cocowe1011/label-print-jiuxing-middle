@@ -2,6 +2,7 @@ package com.middle.label.order.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.middle.label.hander.ResponseResult;
+import com.middle.label.order.entity.dto.GetMachineTaskDTO;
 import com.middle.label.order.entity.dto.GetOrderListPageDTO;
 import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
@@ -30,9 +31,9 @@ public class OrderController {
      * 获取机台任务列表
      * @return
      */
-    @RequestMapping("/getMachineList")
-    public ResponseResult<List<UrValueFkTask>> getMachineList() {
-        return ResponseResult.success(orderService.getMachineList());
+    @RequestMapping("/getMachineTask")
+    public ResponseResult<List<UrValueFkTask>> getMachineTask(@RequestBody GetMachineTaskDTO getMachineTaskDTO) {
+        return ResponseResult.success(orderService.getMachineTask(getMachineTaskDTO));
     }
 
     /**

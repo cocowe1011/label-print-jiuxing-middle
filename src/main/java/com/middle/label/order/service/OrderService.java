@@ -1,6 +1,7 @@
 package com.middle.label.order.service;
 
 import com.github.pagehelper.PageInfo;
+import com.middle.label.order.entity.dto.GetMachineTaskDTO;
 import com.middle.label.order.entity.dto.GetOrderListPageDTO;
 import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
@@ -29,7 +30,7 @@ public interface OrderService {
      * 获取机台任务列表
      * @return
      */
-    List<UrValueFkTask> getMachineList();
+    List<UrValueFkTask> getMachineTask(GetMachineTaskDTO getMachineTaskDTO);
 
     /**
      * 查询按照箱编号正序排序的第一个订单信息

@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.middle.label.order.dao.UrValueFkLogMapper;
 import com.middle.label.order.dao.UrValueFkTaskMapper;
+import com.middle.label.order.entity.dto.GetMachineTaskDTO;
 import com.middle.label.order.entity.dto.GetOrderListPageDTO;
 import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
 import com.middle.label.order.entity.po.UrValueFk;
@@ -44,8 +45,8 @@ public class OrderServiceImpl implements OrderService {
      */
     @Override
     @DS("db2")
-    public List<UrValueFkTask> getMachineList() {
-        return this.urValueFkTaskMapper.getMachineList();
+    public List<UrValueFkTask> getMachineTask(GetMachineTaskDTO getMachineTaskDTO) {
+        return this.urValueFkTaskMapper.getMachineTask(getMachineTaskDTO);
     }
 
     /**
@@ -84,6 +85,9 @@ public class OrderServiceImpl implements OrderService {
         entity.setIsComplete(10);
         entity.setIsgather(1);
         entity.setMachine(urValueFk.getMachine());
+        entity.setNweight(urValueFk.getNweight());
+        entity.setQrCode(urValueFk.getQrCode());
+        entity.setInspection(urValueFk.getInspection());
         int i = this.urValueFkMapper.updateById(entity);
         if(i < 1) {
             throw new RuntimeException();

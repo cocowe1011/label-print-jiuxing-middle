@@ -182,4 +182,14 @@ public class UrValueFk{
 
     */
     private Integer isgather;
+
+    /**
+     * 测量重量-回更表数据
+     */
+    private BigDecimal nweight;
+
+    /**
+     * 备注
+     */
+    private String cremark;
 }

@@ -1,6 +1,7 @@
 package com.middle.label.order.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.middle.label.order.entity.dto.GetMachineTaskDTO;
 import org.apache.ibatis.annotations.Mapper;
 import com.middle.label.order.entity.po.UrValueFkTask;
 import java.util.List;
@@ -13,8 +14,9 @@ import java.util.List;
 @Mapper
 public interface UrValueFkTaskMapper extends BaseMapper<UrValueFkTask> {
     /**
-     * 获取机台任务列表
+     * 获取当前作业机台
+     * @param getMachineTaskDTO
      * @return
      */
-    List<UrValueFkTask> getMachineList();
+    List<UrValueFkTask> getMachineTask(GetMachineTaskDTO getMachineTaskDTO);
 }
