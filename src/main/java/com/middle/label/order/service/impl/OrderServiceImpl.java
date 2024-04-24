@@ -88,6 +88,8 @@ public class OrderServiceImpl implements OrderService {
         entity.setNweight(urValueFk.getNweight());
         entity.setQrCode(urValueFk.getQrCode());
         entity.setInspection(urValueFk.getInspection());
+        entity.setIboxtag(urValueFk.getIboxtag());
+        entity.setCclass(urValueFk.getCclass());
         int i = this.urValueFkMapper.updateById(entity);
         if(i < 1) {
             throw new RuntimeException();

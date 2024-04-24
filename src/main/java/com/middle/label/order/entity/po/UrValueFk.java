@@ -29,7 +29,7 @@ public class UrValueFk{
     /**
     * 数据时间戳
     */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
     private Date dstatuschange;
 
     /**
@@ -192,4 +192,14 @@ public class UrValueFk{
      * 备注
      */
     private String cremark;
+
+    /**
+     * 标签号
+     */
+    private Integer iboxtag;
+
+    /**
+     * 班次代码
+     */
+    private String cclass;
 }
