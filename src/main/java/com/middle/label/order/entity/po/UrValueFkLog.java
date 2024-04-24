@@ -2,6 +2,7 @@ package com.middle.label.order.entity.po;
 
 import java.util.Date;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -16,7 +17,7 @@ import lombok.Data;
 @Data
 @TableName("UR_VALUE_FK_log")
 public class UrValueFkLog{
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Integer id;
 
     /**
