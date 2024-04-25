@@ -90,6 +90,8 @@ public class OrderServiceImpl implements OrderService {
         entity.setInspection(urValueFk.getInspection());
         entity.setIboxtag(urValueFk.getIboxtag());
         entity.setCclass(urValueFk.getCclass());
+        entity.setCremark(urValueFk.getCremark());
+        entity.setNamount(urValueFk.getNamount());
         int i = this.urValueFkMapper.updateById(entity);
         if(i < 1) {
             throw new RuntimeException();

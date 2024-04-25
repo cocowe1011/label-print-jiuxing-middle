@@ -15,6 +15,7 @@
         FROM dbo.UR_VALUE_FK_TASK
         where Istatus_mjob = 1
         and Machine = #{machine}
+        order by ID desc
     </select>
     
 
