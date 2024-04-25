@@ -37,6 +37,8 @@
         <result property="cremark" column="cremark" jdbcType="VARCHAR"/>
         <result property="iboxtag" column="iboxtag" jdbcType="INTEGER"/>
         <result property="cclass" column="cClass" jdbcType="VARCHAR"/>
+        <result property="ivers" column="ivers" jdbcType="INTEGER"/>
+
     </resultMap>
     <select id="getOrderBoxInfoForUpdate" resultMap="UrValueFkMap" parameterType="com.middle.label.order.entity.dto.OrderBoxInfoDTO">
         SELECT top 1 * FROM  [dbo].[UR_VALUE_FK]

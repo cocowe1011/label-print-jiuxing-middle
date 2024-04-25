@@ -202,4 +202,9 @@ public class UrValueFk{
      * 班次代码
      */
     private String cclass;
+
+    /**
+     * 版本号
+     */
+    private Integer ivers;
 }
