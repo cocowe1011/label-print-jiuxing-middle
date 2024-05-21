@@ -207,4 +207,9 @@ public class UrValueFk{
      * 版本号
      */
     private Integer ivers;
+
+    /**
+     * 箱数量单位
+     */
+    private String camountunit;
 }

@@ -37,6 +37,7 @@
         <result property="cremark" column="cremark" jdbcType="VARCHAR"/>
         <result property="iboxtag" column="iboxtag" jdbcType="INTEGER"/>
         <result property="cclass" column="cClass" jdbcType="VARCHAR"/>
+        <result property="camountunit" column="camountunit" jdbcType="VARCHAR"/>
         <result property="ivers" column="ivers" jdbcType="INTEGER"/>
 
     </resultMap>
