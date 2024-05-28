@@ -52,6 +52,9 @@
     <select id="getOrderListSearch" resultMap="UrValueFkMap" parameterType="com.middle.label.order.entity.dto.GetOrderListPageDTO">
         SELECT * FROM dbo.UR_VALUE_FK
         where is_complete = 10 and Machine = #{machine}
+        <if test="id != null">
+            and ID = #{id}
+        </if>
         <if test="idScproduct != null">
             and Id_scProduct = #{idScproduct}
         </if>

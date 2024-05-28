@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
  */
 @Data
 public class GetOrderListPageDTO {
+
+    private Long id;
     /**
      * 生产订单ID,唯一标识码
      */
