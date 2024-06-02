@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.label.order.dao.UrValuePrintsaveMapper">
+
+    <resultMap type="com.middle.label.order.entity.po.UrValuePrintsave" id="UrValuePrintsaveMap">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="ccodeScproduct" column="Ccode_scProduct" jdbcType="VARCHAR"/>
+        <result property="ccodeScaproduct" column="Ccode_scAProduct" jdbcType="VARCHAR"/>
+        <result property="cnameScaproduct" column="Cname_scAProduct" jdbcType="VARCHAR"/>
+        <result property="customerName" column="customer_name" jdbcType="VARCHAR"/>
+        <result property="orderNumber" column="order_number" jdbcType="VARCHAR"/>
+        <result property="customerNumber" column="customer_number" jdbcType="VARCHAR"/>
+        <result property="customerMaterialNumber" column="customer_material_number" jdbcType="VARCHAR"/>
+        <result property="inspection" column="inspection" jdbcType="VARCHAR"/>
+        <result property="drugSpecification" column="Drug_specification" jdbcType="VARCHAR"/>
+        <result property="machine" column="Machine" jdbcType="VARCHAR"/>
+        <result property="namount" column="nAmount" jdbcType="OTHER"/>
+        <result property="customer" column="Customer" jdbcType="VARCHAR"/>
+        <result property="qrCode" column="QR_code" jdbcType="VARCHAR"/>
+        <result property="reprintingTime" column="Reprinting_time" jdbcType="INTEGER"/>
+        <result property="iindex" column="iIndex" jdbcType="VARCHAR"/>
+        <result property="team" column="Team" jdbcType="VARCHAR"/>
+        <result property="operator" column="Operator" jdbcType="VARCHAR"/>
+        <result property="nweight" column="nweight" jdbcType="OTHER"/>
+        <result property="cremark" column="cremark" jdbcType="VARCHAR"/>
+        <result property="iboxtag" column="iboxtag" jdbcType="INTEGER"/>
+        <result property="cclass" column="cClass" jdbcType="VARCHAR"/>
+        <result property="ivers" column="ivers" jdbcType="INTEGER"/>
+        <result property="camountunit" column="camountunit" jdbcType="VARCHAR"/>
+        <result property="idUrValueFk" column="Id_ur_value_fk" jdbcType="INTEGER"/>
+        <result property="ddate" column="ddate" jdbcType="TIMESTAMP"/>
+        <result property="nproductamount" column="nproductAmount" jdbcType="OTHER"/>
+    </resultMap>
+
+    
+
+</mapper>
