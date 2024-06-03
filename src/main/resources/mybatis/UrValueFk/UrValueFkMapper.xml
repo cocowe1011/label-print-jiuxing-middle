@@ -49,14 +49,37 @@
         order by iIndex
     </select>
 
-    <select id="getOrderListSearch" resultMap="UrValueFkMap" parameterType="com.middle.label.order.entity.dto.GetOrderListPageDTO">
-        SELECT * FROM dbo.UR_VALUE_FK
-        where is_complete = 10 and Machine = #{machine}
+    <select id="getOrderListSearch" resultType="com.middle.label.order.entity.po.UrValueFk" parameterType="com.middle.label.order.entity.dto.GetOrderListPageDTO">
+        SELECT
+        Ccode_scProduct as ccodeScproduct,
+        Ccode_scAProduct as ccodeScaproduct,
+        Cname_scAProduct as cnameScaproduct,
+        customer_name as customerName,
+        order_number as orderNumber,
+        customer_number as customerNumber,
+        customer_material_number as customerMaterialNumber,
+        inspection as inspection,
+        Drug_specification as drugSpecification,
+        Machine as machine,
+        nAmount as namount,
+        Customer as customer,
+        QR_code as qrCode,
+        Reprinting_time as reprintingTime,
+        iIndex as iIndex,
+        Team as team,
+        Operator as operator,
+        nweight as nweight,
+        cremark as cremark,
+        iboxtag as iboxtag,
+        cClass as cclass,
+        ivers as ivers,
+        camountunit as camountunit,
+        Id_ur_value_fk as id,
+        ddate as dstatuschange
+        FROM dbo.UR_VALUE_PRINTSAVE
+        where Machine = #{machine}
         <if test="id != null">
-            and ID = #{id}
-        </if>
-        <if test="idScproduct != null">
-            and Id_scProduct = #{idScproduct}
+            and Id_ur_value_fk = #{id}
         </if>
         <if test="ccodeScproduct != null and ccodeScproduct != ''">
             and Ccode_scProduct = #{ccodeScproduct}

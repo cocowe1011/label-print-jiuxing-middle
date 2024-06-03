@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.middle.label.order.dao.UrValueFkLogMapper;
 import com.middle.label.order.dao.UrValueFkTaskMapper;
+import com.middle.label.order.dao.UrValuePrintsaveMapper;
 import com.middle.label.order.entity.dto.GetMachineTaskDTO;
 import com.middle.label.order.entity.dto.GetOrderListPageDTO;
 import com.middle.label.order.entity.dto.OrderBoxInfoDTO;
@@ -11,6 +12,7 @@ import com.middle.label.order.entity.po.UrValueFk;
 import com.middle.label.order.dao.UrValueFkMapper;
 import com.middle.label.order.entity.po.UrValueFkLog;
 import com.middle.label.order.entity.po.UrValueFkTask;
+import com.middle.label.order.entity.po.UrValuePrintsave;
 import com.middle.label.order.service.OrderService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +40,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Resource
     private UrValueFkLogMapper urValueFkLogMapper;
+
+    @Resource
+    private UrValuePrintsaveMapper urValuePrintsaveMapper;
 
     /**
      * 获取机台任务列表
@@ -120,7 +125,38 @@ public class OrderServiceImpl implements OrderService {
         if(i < 1) {
             throw new RuntimeException();
         }
-        // 3、考虑如果更新失败了，怎么办--回滚啦
+        UrValuePrintsave urValuePrintsave = new UrValuePrintsave();
+        urValuePrintsave.setCcodeScproduct(urValueFk.getCcodeScproduct());
+        urValuePrintsave.setCcodeScaproduct(urValueFk.getCcodeScaproduct());
+        urValuePrintsave.setCnameScaproduct(urValueFk.getCnameScaproduct());
+        urValuePrintsave.setCustomerName(urValueFk.getCustomerName());
+        urValuePrintsave.setOrderNumber(urValueFk.getOrderNumber());
+        urValuePrintsave.setCustomerNumber(urValueFk.getCustomerNumber());
+        urValuePrintsave.setCustomerMaterialNumber(urValueFk.getCustomerMaterialNumber());
+        urValuePrintsave.setInspection(urValueFk.getInspection());
+        urValuePrintsave.setDrugSpecification(urValueFk.getDrugSpecification());
+        urValuePrintsave.setMachine(urValueFk.getMachine());
+        urValuePrintsave.setNamount(urValueFk.getNamount());
+        urValuePrintsave.setCustomer(urValueFk.getCustomer());
+        urValuePrintsave.setQrCode(urValueFk.getQrCode());
+        urValuePrintsave.setReprintingTime(urValueFk.getReprintingTime());
+        urValuePrintsave.setIindex(urValueFk.getIIndex());
+        urValuePrintsave.setTeam(urValueFk.getTeam());
+        urValuePrintsave.setOperator(urValueFk.getOperator());
+        urValuePrintsave.setNweight(urValueFk.getNweight());
+        urValuePrintsave.setCremark(urValueFk.getCremark());
+        urValuePrintsave.setIboxtag(urValueFk.getIboxtag());
+        urValuePrintsave.setCclass(urValueFk.getCclass());
+        urValuePrintsave.setIvers(urValueFk.getIvers());
+        urValuePrintsave.setCamountunit(urValueFk.getCamountunit());
+        urValuePrintsave.setIdUrValueFk(urValueFk.getId());
+        urValuePrintsave.setDdate(urValueFk.getDstatuschange());
+        // 3、插入新的历史记录表
+        i = urValuePrintsaveMapper.insert(urValuePrintsave);
+        if(i < 1) {
+            throw new RuntimeException();
+        }
+        // 4、考虑如果更新失败了，怎么办--回滚啦
         return i;
     }
 

@@ -1,5 +1,7 @@
 package com.middle.label.order.entity.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -12,11 +14,8 @@ import javax.validation.constraints.NotNull;
 @Data
 public class GetOrderListPageDTO {
 
+    @JsonSerialize(using = ToStringSerializer.class)
     private Long id;
-    /**
-     * 生产订单ID,唯一标识码
-     */
-    private Integer idScproduct;
 
     /**
      * 生产订单号,也就是批次号
