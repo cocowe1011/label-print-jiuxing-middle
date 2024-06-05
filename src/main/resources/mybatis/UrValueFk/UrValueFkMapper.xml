@@ -46,7 +46,7 @@
         where (is_complete = -20
         or (is_complete = 20 and Machine = #{machine} ))
         and Id_scProduct = #{idScproduct}
-        order by iIndex
+        order by CAST(iIndex AS INT);
     </select>
 
     <select id="getOrderListSearch" resultType="com.middle.label.order.entity.po.UrValueFk" parameterType="com.middle.label.order.entity.dto.GetOrderListPageDTO">
