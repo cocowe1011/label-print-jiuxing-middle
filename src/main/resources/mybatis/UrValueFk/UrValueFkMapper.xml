@@ -42,7 +42,7 @@
 
     </resultMap>
     <select id="getOrderBoxInfoForUpdate" resultMap="UrValueFkMap" parameterType="com.middle.label.order.entity.dto.OrderBoxInfoDTO">
-        SELECT top 1 * FROM  [dbo].[UR_VALUE_FK]
+        SELECT top 1 * FROM  [dbo].[UR_VALUE_FK] WITH(NOLOCK)
         where (is_complete = -20
         or (is_complete = 20 and Machine = #{machine} ))
         and Id_scProduct = #{idScproduct}
@@ -76,7 +76,7 @@
         camountunit as camountunit,
         Id_ur_value_fk as id,
         ddate as dstatuschange
-        FROM dbo.UR_VALUE_PRINTSAVE
+        FROM dbo.UR_VALUE_PRINTSAVE WITH(NOLOCK)
         where Machine = #{machine}
         <if test="id != null">
             and Id_ur_value_fk = #{id}
